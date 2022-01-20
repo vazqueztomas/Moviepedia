@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+*{
+    font-family: 'Outfit', sans-serif;
+}
+
+header{
+    flex-direction: column;
+    display: flex;
+    align-items: center;    
+}
+
+header label {
+    padding: 1rem;
+}
+
+header button {
+    padding: 5.rem;
+    margin: .4rem;
+}
+header h1{
+    text-align: center;
+    
+}
+.div-container-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#add-movie-btn{
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: #088000;
+    border: none;
+}
+.toggle {display: none;}
+
+
+#container-movies {
+    display: flex;
+    flex-direction: row;
+    padding: 3rem;
+    text-align: center;
+}
+
+#container-movies div{
+    padding: 2rem;
+}
