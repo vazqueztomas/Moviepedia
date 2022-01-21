@@ -74,7 +74,7 @@ function addMovie(){
 
 
 function removeLastMovie(){
-        $container_movies.remove($container_movies.lastChild)
+    $container_movies.removeChild($container_movies.lastChild)
 }
 
 
