@@ -31,48 +31,51 @@ const $buttonOpenForm = d.getElementById('open-form');
 const $buttonAdd = d.getElementById('add-movie-btn')
 const $container_movies = d.getElementById('container-movies');
 const $container_form = d.getElementById('form')
+const $movieName = d.getElementById('name-text');
+const $revText = d.getElementById('rev-text');
 
 
 $buttonOpenForm.addEventListener('click', () => {
     $container_form.classList.toggle('toggle')
 })
 
-$buttonAdd.addEventListener('click', () => {
-    addMovie();    
+$buttonAdd.addEventListener('click', () => {    
+    // validate name and rev text is complete
+    if ($movieName.value.length == 0 || $revText.value.length == 0) {
+        alert('Te falta completar algun formulario')
+    } else {
+        addMovie();    
+    }
 })
 
 function addMovie(){
-    const name = d.getElementById('name-text');
-    const rev = d.getElementById('rev-text');
-    const newDiv = d.createElement('div');
-    const movieTitle = d.createElement('h2');
-    const movieRev = d.createElement('p');
-    const $buttonClear = d.createElement('button');
+    let newDiv = d.createElement('div');
+    let movieTitle = d.createElement('h2');
+    let movieRev = d.createElement('p');
 
-    
+    // button clear movie
+    const $buttonClear = d.createElement('button');    
     $buttonClear.innerHTML = '-'
-    // $buttonClear.onclick = removeLastMovie();
     $buttonClear.classList= 'remove-btn'
-
     $buttonClear.addEventListener ('click', () => {
         removeLastMovie();
     })
 
-    movieTitle.innerHTML = name.value
-    movieRev.innerHTML = rev.value    
+
+    movieTitle.innerHTML = $movieName.value
+    movieRev.innerHTML = $revText.value    
      
-    // newDiv.style.classList('div-movies');
     newDiv.appendChild(movieTitle);
     newDiv.appendChild(movieRev);
-
     newDiv.appendChild($buttonClear)
-
     $container_movies.appendChild(newDiv);
-    name.value = ''
-    rev.value = ''
+
+    // delete values from inputs.
+    $movieName.value = ''
+    $revText.value = ''
 }
 
-
+// this function is for buttons to clear movies 
 function removeLastMovie(){
     $container_movies.removeChild($container_movies.lastChild)
 }
