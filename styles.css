@@ -43,10 +43,14 @@ header h1{
     flex-direction: row;
     padding: 3rem;
     text-align: center;
+    flex-wrap: wrap;
 }
 
 #container-movies div{
     padding: 2rem;
+    border: 1px solid black;
+    margin: 14px;
+    border-radius: 10px;
 }
 
 #add-movie-btn { background-color: #088000;}
