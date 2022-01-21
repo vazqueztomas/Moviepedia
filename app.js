@@ -32,18 +32,31 @@ const $buttonAdd = d.getElementById('add-movie-btn')
 const $container_movies = d.getElementById('container-movies');
 const $container_form = d.getElementById('form')
 
+
 $buttonOpenForm.addEventListener('click', () => {
     $container_form.classList.toggle('toggle')
 })
 
-
 $buttonAdd.addEventListener('click', () => {
+    addMovie();    
+})
+
+function addMovie(){
     const name = d.getElementById('name-text');
     const rev = d.getElementById('rev-text');
     const newDiv = d.createElement('div');
     const movieTitle = d.createElement('h2');
     const movieRev = d.createElement('p');
+    const $buttonClear = d.createElement('button');
 
+    
+    $buttonClear.innerHTML = '-'
+    // $buttonClear.onclick = removeLastMovie();
+    $buttonClear.classList= 'remove-btn'
+
+    $buttonClear.addEventListener ('click', () => {
+        removeLastMovie();
+    })
 
     movieTitle.innerHTML = name.value
     movieRev.innerHTML = rev.value    
@@ -51,13 +64,19 @@ $buttonAdd.addEventListener('click', () => {
     // newDiv.style.classList('div-movies');
     newDiv.appendChild(movieTitle);
     newDiv.appendChild(movieRev);
-    $container_movies.appendChild(newDiv);
 
+    newDiv.appendChild($buttonClear)
+
+    $container_movies.appendChild(newDiv);
     name.value = ''
     rev.value = ''
+}
 
 
+function removeLastMovie(){
+        $container_movies.remove($container_movies.lastChild)
+}
 
-})
+
 
 

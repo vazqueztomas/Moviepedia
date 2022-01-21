@@ -29,11 +29,10 @@ header h1{
     flex-direction: column;
 }
 
-#add-movie-btn{
+#add-movie-btn, .remove-btn{
     padding: 10px 15px;
     border-radius: 5px;
     color: white;
-    background-color: #088000;
     border: none;
 }
 .toggle {display: none;}
@@ -49,3 +48,6 @@ header h1{
 #container-movies div{
     padding: 2rem;
 }
+
+#add-movie-btn { background-color: #088000;}
+.remove-btn { background-color:  rgb(187, 3, 3);}
